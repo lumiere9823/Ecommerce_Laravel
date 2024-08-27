@@ -48,7 +48,7 @@ class BrandResource extends Resource
                         ->image()
                         ->directory('brands'),
 
-                    Toggle::make('is active')
+                    Toggle::make('is_active')
                         ->default(true)
                         ->required(),
                 ]),
@@ -78,7 +78,13 @@ class BrandResource extends Resource
             ->filters([
                 //
             ])
-            ->actions([Tables\Actions\ActionGroup::make([Tables\Actions\ViewAction::make(), Tables\Actions\EditAction::make(), Tables\Actions\DeleteAction::make()])])
+            ->actions([
+                Tables\Actions\ActionGroup::make([
+                    Tables\Actions\ViewAction::make(),
+                    Tables\Actions\EditAction::make(),
+                    Tables\Actions\DeleteAction::make()
+                ])
+            ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),

@@ -37,19 +37,14 @@ class ProductResource extends Resource
                         TextInput::make('name')
                             ->required()
                             ->live(onBlur: true)
-                            ->afterStateUpdated(function (string $operation, $state, Set $set) {
-                                if ($operation !== 'create') {
-                                    return;
-                                }
-                                $set('slug', Str::slug($state));
-                            })
+                            ->afterStateUpdated(fn(string $operation, $state, Set $set) => $operation === 'create' ? $set('slug', Str::slug($state)) : null)
                             ->maxLength(255),
 
                         TextInput::make('slug')
                             ->required()
                             ->maxLength(255)
-                            ->dehydrated()
                             ->disabled()
+                            ->dehydrated()
                             ->unique(Product::class, 'slug', ignoreRecord: true),
 
                         MarkdownEditor::make('description')

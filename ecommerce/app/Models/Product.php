@@ -24,7 +24,8 @@ class Product extends Model
     ];
 
     protected $casts = [
-        "images"=> "array",
+        "images" => "array",
+        "is_active" => "boolean"
     ];
 
     public function category()
@@ -41,5 +42,4 @@ class Product extends Model
     {
         return $this->hasMany(OrderItem::class);
     }
-
 }

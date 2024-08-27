@@ -47,7 +47,7 @@ class CategoryResource extends Resource
                     ->image()
                     ->directory('categories'),
 
-                Toggle::make('is active')
+                Toggle::make('is_active')
                     ->default(true)
                     ->required(),
             ]),
@@ -57,11 +57,24 @@ class CategoryResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-            ->columns([Tables\Columns\TextColumn::make('name')->searchable(), Tables\Columns\ImageColumn::make('image'), Tables\Columns\TextColumn::make('slug')->searchable(), Tables\Columns\IconColumn::make('is_active')->boolean(), Tables\Columns\TextColumn::make('created_at')->dateTime()->sortable()->toggleable(isToggledHiddenByDefault: true), Tables\Columns\TextColumn::make('updated_at')->dateTime()->sortable()->toggleable(isToggledHiddenByDefault: true)])
+            ->columns([
+                Tables\Columns\TextColumn::make('name')->searchable(),
+                Tables\Columns\ImageColumn::make('image'),
+                Tables\Columns\TextColumn::make('slug')->searchable(),
+                Tables\Columns\IconColumn::make('is_active')->boolean(),
+                Tables\Columns\TextColumn::make('created_at')->dateTime()->sortable()->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('updated_at')->dateTime()->sortable()->toggleable(isToggledHiddenByDefault: true)
+            ])
             ->filters([
                 //
             ])
-            ->actions([Tables\Actions\ActionGroup::make([Tables\Actions\ViewAction::make(), Tables\Actions\EditAction::make(), Tables\Actions\DeleteAction::make()])])
+            ->actions([
+                Tables\Actions\ActionGroup::make([
+                    Tables\Actions\ViewAction::make(),
+                    Tables\Actions\EditAction::make(),
+                    Tables\Actions\DeleteAction::make()
+                ])
+            ])
             ->bulkActions([Tables\Actions\BulkActionGroup::make([Tables\Actions\DeleteBulkAction::make()])]);
     }
 
