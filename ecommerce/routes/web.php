@@ -31,7 +31,7 @@ Route::get('/', HomePage::class)->name('home');
 Route::get('/categories', CategoriesPage::class)->name('categories');
 Route::get('/products', ProductsPage::class)->name('products');
 Route::get('/cart', CartsPage::class)->name('cart');
-Route::get('/products/{product}', ProductDetailPage::class)->name('products.show');
+Route::get('/products/{slug}', ProductDetailPage::class)->name('products.show');
 Route::get('/checkout', CheckoutPage::class)->name('checkout');
 Route::get('/my-orders', MyOrdersPage::class)->name('myorder');
 Route::get('/my-orders/{order}', OrderDetailPage::class)->name('order-detail');

@@ -11,7 +11,7 @@
 </head>
 
 <body>
-@livewire('partials.navbar')
+    @livewire('partials.navbar')
     <main class="bg-slate-200 dark:bg-slate-400">
         {{ $slot }}
     </main>

@@ -1,4 +1,4 @@
-<div>
+{{-- <div>
     <canvas id="orderStatusPieChart"></canvas>
 
     @push('scripts')
@@ -53,4 +53,4 @@
         });
     </script>
     @endpush
-</div>
+</div> --}}
