@@ -4,6 +4,7 @@ namespace App\Filament\Resources\OrderResource\Pages;
 
 use App\Filament\Resources\OrderResource;
 use App\Filament\Resources\OrderResource\Widgets\OrderStats;
+use App\Filament\Resources\OrderResource\Widgets\OrderStatusPieChart;
 use Filament\Actions;
 use Filament\Resources\Components\Tab;
 use Filament\Resources\Pages\ListRecords;
@@ -20,7 +21,7 @@ class ListOrders extends ListRecords
     }
     protected function getHeaderWidgets(): array
     {
-        return [OrderStats::class];
+        return [OrderStats::class, OrderStatusPieChart::class];
     }
     public function getTabs(): array
     {
