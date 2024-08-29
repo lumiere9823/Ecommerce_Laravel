@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>{{ $title ?? 'Page Title' }}</title>
+    <script src="https://unpkg.com/alpinejs" defer></script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
 </head>
 
 <body>
     @livewire('partials.navbar')
-    <main class="bg-slate-200 dark:bg-slate-400">
+    <main class="bg-slate-200 dark:bg-slate-4000" style="min-height: 60vh;">
         {{ $slot }}
     </main>
     @livewire('partials.footer')

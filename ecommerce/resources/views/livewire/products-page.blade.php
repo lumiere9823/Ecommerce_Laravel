@@ -77,13 +77,22 @@
                 </div>
                 <div class="w-full px-3 lg:w-3/4">
                     <div class="px-3 mb-4">
-                        <div class="items-center justify-between hidden px-3 py-2 bg-gray-100 md:flex dark:bg-gray-900">
+                        <div class="relative inline-block w-full text-gray-700">
                             <div class="flex items-center justify-between">
-                                <select name="" id=""
-                                    class="block w-40 text-base bg-gray-100 cursor-pointer dark:text-gray-400 dark:bg-gray-900">
-                                    <option value="">Sort by latest</option>
-                                    <option value="">Sort by Price</option>
+                                <select wire:model.live="sort" name="" id=""
+                                    class="w-1/2 h-10 px-4 placeholder-gray-600 border rounded-lg appearance-none teyxt-base p-r-6 ppl-3 focus:shadow-outline"
+                                    placeholder="Regular input">
+                                    <option value="latest">Sort by latest</option>
+                                    <option value="price_desc">Sort from The Most Expensive Price</option>
+                                    <option value="price_asc">Sort from Lowest Price</option>
                                 </select>
+                                {{-- <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                            clip-rule="evenodd" fill-rule="evenodd"></path>
+                                    </svg>
+                                </div> --}}
                             </div>
                         </div>
                     </div>

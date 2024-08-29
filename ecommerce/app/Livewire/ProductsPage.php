@@ -19,6 +19,8 @@ class ProductsPage extends Component
     public $on_sale;
     #[Url]
     public $price_range = 100000000;
+    #[Url]
+    public $sort = "latest";
 
     public function render()
     {
@@ -38,6 +40,18 @@ class ProductsPage extends Component
         }
         if ($this->price_range >= 1000) {
             $products->whereBetween('price', [0, $this->price_range]);
+        }
+
+        if ($this->sort == 'latest') {
+            $products = $products->latest();
+        }
+
+        if ($this->sort == 'price_asc') {
+            $products = $products->orderBy('price');
+        }
+
+        if ($this->sort == 'price_desc') {
+            $products = $products->orderByDesc('price');
         }
 
         $categories = Category::where('is_active', 1)->get(['id', 'name', 'slug']);
